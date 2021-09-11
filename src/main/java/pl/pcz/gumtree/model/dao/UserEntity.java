@@ -1,4 +1,4 @@
-package pl.pcz.gumtree.repository.user;
+package pl.pcz.gumtree.model.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "USERS")
 @Data //@Getter @Setter
-@NoArgsConstructor //dla POJO
-@AllArgsConstructor //dla buildera
+@NoArgsConstructor //for POJO
+@AllArgsConstructor //for builder
 @Builder
 public class UserEntity {
 

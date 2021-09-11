@@ -3,18 +3,23 @@ package pl.pcz.gumtree.bootstrap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.pcz.gumtree.repository.user.UserEntity;
+import pl.pcz.gumtree.model.dao.CategoryEntity;
+import pl.pcz.gumtree.repository.category.CategoryRepository;
+import pl.pcz.gumtree.model.dao.UserEntity;
 import pl.pcz.gumtree.repository.user.UserRepository;
+
+import java.util.ArrayList;
+
 
 @Component
 @RequiredArgsConstructor
-public class UserResolver implements CommandLineRunner {
+public class DataProvider implements CommandLineRunner {
 
     private final UserRepository userRepository;
 
-
     @Override
     public void run(String... args) throws Exception {
+
         userRepository.save(UserEntity.builder()
                 .mail("user@mail.pl")
                 .nick("user")
@@ -26,5 +31,8 @@ public class UserResolver implements CommandLineRunner {
                 .nick("admin")
                 .password("admin123")
                 .build());
+
+
     }
+
 }
