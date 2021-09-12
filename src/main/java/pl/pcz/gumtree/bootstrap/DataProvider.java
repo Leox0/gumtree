@@ -6,7 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.pcz.gumtree.model.dao.AuthorityEntity;
 import pl.pcz.gumtree.model.dao.UserEntity;
-import pl.pcz.gumtree.repository.user.UserRepository;
+import pl.pcz.gumtree.repository.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.Collections;

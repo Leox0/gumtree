@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.pcz.gumtree.model.dao.UserEntity;
-import pl.pcz.gumtree.repository.user.UserRepository;
+import pl.pcz.gumtree.repository.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

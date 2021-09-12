@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.pcz.gumtree.model.dao.CategoryEntity;
-import pl.pcz.gumtree.repository.category.CategoryRepository;
+import pl.pcz.gumtree.repository.CategoryRepository;
 
 import java.util.ArrayList;
 

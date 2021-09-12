@@ -3,7 +3,7 @@ package pl.pcz.gumtree.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pcz.gumtree.model.dao.UserEntity;
-import pl.pcz.gumtree.repository.user.UserRepository;
+import pl.pcz.gumtree.repository.UserRepository;
 
 import java.util.List;
 

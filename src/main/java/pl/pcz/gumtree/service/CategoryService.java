@@ -1,11 +1,9 @@
 package pl.pcz.gumtree.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import pl.pcz.gumtree.model.dao.CategoryEntity;
-import pl.pcz.gumtree.model.dao.CategoryResponse;
-import pl.pcz.gumtree.repository.category.CategoryRepository;
+import pl.pcz.gumtree.model.dto.CategoryResponse;
+import pl.pcz.gumtree.repository.CategoryRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

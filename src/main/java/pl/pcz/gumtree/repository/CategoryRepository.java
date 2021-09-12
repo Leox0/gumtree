@@ -1,4 +1,4 @@
-package pl.pcz.gumtree.repository.category;
+package pl.pcz.gumtree.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

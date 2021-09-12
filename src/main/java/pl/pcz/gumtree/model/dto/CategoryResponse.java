@@ -1,4 +1,4 @@
-package pl.pcz.gumtree.model.dao;
+package pl.pcz.gumtree.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
