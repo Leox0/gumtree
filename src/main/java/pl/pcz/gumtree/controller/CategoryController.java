@@ -21,6 +21,7 @@ public class CategoryController {
     public List<CategoryResponse> getMainCategories() {
         return categoryService.getMainCategories();
     }
+
     @GetMapping(path = "/{name}")
     public List<CategoryResponse> getSubCategories(@PathVariable String name) {
         return categoryService.getSubCategory(name);

@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                    .antMatchers(HttpMethod.POST, "/users/**").permitAll()
                     .antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
                     .antMatchers("/h2-console/**").permitAll()
                     .anyRequest().authenticated()
