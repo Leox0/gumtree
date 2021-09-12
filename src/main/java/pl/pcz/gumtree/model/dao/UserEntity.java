@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -27,5 +28,8 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<AuthorityEntity> authorities;
 
 }
