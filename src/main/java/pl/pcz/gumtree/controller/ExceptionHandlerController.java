@@ -12,14 +12,14 @@ import java.util.Optional;
 @RestControllerAdvice
 public class ExceptionHandlerController {
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<GumtreeErrorResponse> handleGeneralError(Exception exception) {
-        return ResponseEntity.of(
-                Optional.of(
-                        GumtreeErrorResponse.builder().message("niespodziewany błąd").build()
-                )
-        );
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<GumtreeErrorResponse> handleGeneralError(Exception exception) {
+//        return ResponseEntity.of(
+//                Optional.of(
+//                        GumtreeErrorResponse.builder().message("niespodziewany błąd").build()
+//                )
+//        );
+//    }
 
     @ExceptionHandler(GumtreeCopyException.class)
     public ResponseEntity<GumtreeErrorResponse> handleGumtryException(GumtreeCopyException exception) {

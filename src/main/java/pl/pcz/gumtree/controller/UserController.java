@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.pcz.gumtree.model.dao.ConfirmationToken;
 import pl.pcz.gumtree.model.dao.UserEntity;
 import pl.pcz.gumtree.model.dto.UserRequest;
 import pl.pcz.gumtree.model.dto.UserResponse;
@@ -30,6 +31,14 @@ public class UserController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(user);
+    }
+
+    @GetMapping(path = "/confirm-account")
+    public ResponseEntity<Void> confirmUserAccount(@RequestParam("token")String confirmationToken){
+        userService.confirmUserAccount(confirmationToken);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .build();
     }
 
 

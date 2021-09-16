@@ -18,6 +18,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "userId")
     private Long id;
 
     @Column(unique = true, name = "mail")
@@ -28,6 +29,9 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "confirmation")
+    private boolean isEnabled;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<AuthorityEntity> authorities;

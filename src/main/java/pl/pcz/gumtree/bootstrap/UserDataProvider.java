@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Transactional
-public class DataProvider implements CommandLineRunner {
+public class UserDataProvider implements CommandLineRunner {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -31,6 +31,7 @@ public class DataProvider implements CommandLineRunner {
                 .nick("user")
                 .password(passwordEncoder.encode("user123"))
                 .authorities(Collections.singletonList(userRole))
+                .isEnabled(true)
                 .build());
 
         UserEntity a1 = userRepository.save(UserEntity.builder()
@@ -38,6 +39,7 @@ public class DataProvider implements CommandLineRunner {
                 .nick("admin")
                 .password(passwordEncoder.encode("admin123"))
                 .authorities(List.of(userRole,adminRole))
+                .isEnabled(true)
                 .build());
 
 
