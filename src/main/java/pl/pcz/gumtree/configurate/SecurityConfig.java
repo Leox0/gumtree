@@ -54,7 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/users/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/users/confirm-account").permitAll()
                 .antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
-                    .anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET, "/categories").permitAll()
+                .antMatchers(HttpMethod.GET, "/categories/*").permitAll()
+                .anyRequest().authenticated()
                 .and()
                     .headers().frameOptions().sameOrigin()
                 .and()
@@ -64,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .csrf()
                     .disable()
+                .cors().disable()
                 .logout();
     }
 }

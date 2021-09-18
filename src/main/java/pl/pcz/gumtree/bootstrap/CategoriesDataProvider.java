@@ -27,13 +27,32 @@ public class CategoriesDataProvider implements CommandLineRunner {
         nieruchomosci.getChildren().add(mieszkaniaIDomyDoWynajcia);
 
         //################
-        CategoryEntity Motoryzacja = generateEntity("Motoryzacja", null);
+        CategoryEntity motoryzacja = generateEntity("Motoryzacja", null);
+        CategoryEntity samochodyOsobowe = generateEntity("Samochody osobowe", motoryzacja);
+        CategoryEntity samochodyDostawcze = generateEntity("Samochody dostawcze", motoryzacja);
+        CategoryEntity quady = generateEntity("Quady", motoryzacja);
+        CategoryEntity motocykle = generateEntity("Motocykle", motoryzacja);
+        CategoryEntity ciagniki = generateEntity("Ciagniki", motoryzacja);
+
+        motoryzacja.getChildren().add(samochodyOsobowe);
+        motoryzacja.getChildren().add(samochodyDostawcze);
+        motoryzacja.getChildren().add(quady);
+        motoryzacja.getChildren().add(motocykle);
+        motoryzacja.getChildren().add(ciagniki);
+
 
         //################
-        CategoryEntity moda = generateEntity("moda", null);
+        CategoryEntity moda = generateEntity("Moda", null);
+        CategoryEntity obuwie = generateEntity("Obuwie", moda);
+        CategoryEntity odziez = generateEntity("Odziez", moda);
+        CategoryEntity bizuteria = generateEntity("bizuteria", moda);
+
+        moda.getChildren().add(obuwie);
+        moda.getChildren().add(odziez);
+        moda.getChildren().add(bizuteria);
 
         //################
-        CategoryEntity elektronika = generateEntity("elektronika", null);
+        CategoryEntity elektronika = generateEntity("Elektronika", null);
 
 
     }

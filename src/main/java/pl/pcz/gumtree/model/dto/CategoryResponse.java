@@ -14,8 +14,8 @@ import java.util.List;
 @Builder
 public class CategoryResponse {
 
-    private String name;
+    private String mainCategoryName;
 
-    private List<String> children;
+    private List<String> subCategories;
 
 }

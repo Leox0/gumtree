@@ -2,11 +2,14 @@ package pl.pcz.gumtree.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.pcz.gumtree.exceptions.ExceptionReason;
+import pl.pcz.gumtree.exceptions.GumtreeCopyException;
 import pl.pcz.gumtree.model.dto.CategoryResponse;
 import pl.pcz.gumtree.repository.CategoryRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,8 +24,8 @@ public class CategoryService {
         return categoryRepository.findAllByParentNull()
                 .stream()
                 .map(entity -> CategoryResponse.builder()
-                        .name(entity.getName())
-                        .children(entity.getChildren().stream()
+                        .mainCategoryName(entity.getName())
+                        .subCategories(entity.getChildren().stream()
                                 .map(children -> children.getName())
                                 .collect(Collectors.toList())
                         ).build())
@@ -30,16 +33,15 @@ public class CategoryService {
 
     }
 
-    public List<CategoryResponse> getSubCategory(String name) {
-        return categoryRepository.findByName(name).getChildren()
-                .stream()
+    public CategoryResponse getSubCategory(String name) {
+        return Optional.ofNullable(categoryRepository.findByName(name))
                 .map(entity -> CategoryResponse.builder()
-                        .name(entity.getName())
-                        .children(entity.getChildren().stream()
+                        .mainCategoryName(entity.getName())
+                        .subCategories(entity.getChildren().stream()
                                 .map(children -> children.getName())
                                 .collect(Collectors.toList())
                         ).build())
-                .collect(Collectors.toList());
+                .orElseThrow(()->new GumtreeCopyException(ExceptionReason.CATEGORY_NOT_AVAILABLE));
     }
 
 

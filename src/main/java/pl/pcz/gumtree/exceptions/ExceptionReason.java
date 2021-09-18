@@ -6,7 +6,9 @@ import lombok.Getter;
 public enum ExceptionReason {
 
     USER_WITH_MAIL_ACTUALLY_EXISTS ("Uzytkownik z podanym nickiem istnieje"),
-    CONFIRMATION_LINK_IS_INVALID_OR_BROKEN("Confirmation link is invalid or broken");
+    CONFIRMATION_LINK_IS_INVALID_OR_BROKEN("Confirmation link is invalid or broken"),
+    CATEGORY_NOT_AVAILABLE("Category not available");
+
 
     private String messageTemplate;
 
