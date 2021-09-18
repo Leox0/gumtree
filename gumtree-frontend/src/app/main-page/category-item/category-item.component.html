@@ -1,0 +1,4 @@
+<p>{{category.mainCategoryName}}</p>
+<br>
+<p *ngFor = "let subcat of category.subCategories" [routerLink]="['/' + subcat]">{{subcat}}</p>
+<hr>
